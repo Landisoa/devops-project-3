@@ -41,10 +41,11 @@
             <attribute name="Class-Path" value="${manifest.classpath}"/>
          </manifest>
       </jar>
-   </target>
-   <target name="clean">
-      <delete dir="bin"/>
-      <delete dir="report"/>
-      <delete file="${jar}"/>
-   </target>
+   	</target>
+	
+	<target name="clean" 
+	description="clean up">
+	<delete dir="${build}"/>
+	<delete dir="${dist}"/></target> 
+	   
 </project>
