@@ -1,5 +1,10 @@
 Testsuite: devops.numbers.NumberWordsTests
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+------------- Standard Output ---------------
+*** negative one
+*** ten
+*** one hundred twenty three
+------------- ---------------- ---------------
 
 Testcase: testonedigit took 0 sec
 Testcase: testtwodigits took 0 sec

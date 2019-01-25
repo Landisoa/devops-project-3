@@ -3,12 +3,18 @@ package devops.numbers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.text.NumberFormat;
 
 	
 public final class NumberWordsApplication {
 	
-	 
-		    
+	private final NumberWords numberWords ;
+	private final BufferedReader reader ; 
+	public NumberWordsApplication() {
+		numberWords = new NumberWords() ;
+		reader = new BufferedReader( new InputStreamReader( System.in ) ) ;
+	}
 		    private static final String[] tens = {
 		        "",
 		        " ten",
@@ -45,7 +51,7 @@ public final class NumberWordsApplication {
 		        " nineteen"
 		    };
 		    
-		    private String convertLessThanOneThousand(int number) {
+		    private static String convertless1000(int number) {
 		        String current;
 		        
 		        if (number % 100 < 20){
@@ -60,6 +66,7 @@ public final class NumberWordsApplication {
 		            number /= 10;
 		        }
 		        if (number == 0) return current;
+		                
 		        return nums[number] + " hundred" + current;
 		    }
 		    
@@ -68,6 +75,7 @@ public final class NumberWordsApplication {
 		        if (number == 0) { return "zero"; }
 		        
 		        String prefix = "";
+		        
 		        
 		        if (number < 0) {
 		            number = -number;
@@ -80,7 +88,7 @@ public final class NumberWordsApplication {
 		        do {
 		            int n = number % 1000;
 		            if (n != 0){
-		                String s = convertLessThanOneThousand(n);
+		                String s = convertless1000(n);
 		                current = s + current;
 		            }
 		            place++;
@@ -91,5 +99,15 @@ public final class NumberWordsApplication {
 		        
 		    }
 		    
+		   
+		    public static void main(final String[] args) {
 
+		    	int number;
+		    	Scanner s= new Scanner(System.in);
+		        System.out.println("Enter a number to convert into word format:");
+		    	number = s.nextInt();
+		    	System.out.println(NumberFormat.getInstance().format(number) + " ='" + convertless1000(number) + "'");
+		    	
+		    	
+		    }
 }
